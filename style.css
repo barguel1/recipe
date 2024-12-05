@@ -544,3 +544,41 @@ footer img{
         
     }
 }
+
+@media print {
+    
+    @page {
+      margin: 0.5in;
+    }
+  
+    
+    body {
+      font-family: sans-serif, serif;
+    }
+  
+    nav {
+      display: none !important;
+    }
+  
+    img {
+      filter: grayscale(100%);
+      max-width: 100%;
+      height: auto;
+    }
+  
+    a[href]:after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #666;
+    }
+  
+    p, h1, h2, h3, h4, h5, h6 {
+      orphans: 3;
+      widows: 3;
+    }
+  
+    body {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+  }
