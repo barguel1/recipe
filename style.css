@@ -1,0 +1,546 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ----Root Variables---- */
+:root{
+    --black: #0D0d0D;
+    --white: #f2F2f2;
+    --aqua: #7ABFBF;
+    --light-aqua: rgba(122,191,191,.5);
+    --orange:#EB5428;
+
+}
+html{
+    background-color: var(--light-aqua);
+}
+body {
+    width: 414px;
+    background-color: var(--white);
+    margin: 0 auto;
+  }
+H1, h2, h3, nav a, nav span, figcaption, menu li, .connect li, footer p{
+    font-family: 'Bebas Neue', sans-serif;  
+}
+p, dd, li, #search input{
+    font-family: 'montserrat';
+    font-size: 16px;
+}
+dt{
+    font-family: 'montserrat';
+    font-weight: bold;
+}
+header {
+    position: absolute;
+    top: 0;
+}
+h2 {
+    font-size: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 150px;
+    padding: 20px;
+}
+nav h2 {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/* ----Global Styles (mobile first/small)---- */
+@media (max-width: 414px){}
+
+nav {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+nav ul {
+    grid-row: 1;
+    list-style: none;
+    background-color: white;
+    overflow: hidden;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 80px 60px;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    width: 414px;
+    justify-items: center;
+    z-index: 1;
+}
+
+#burger {
+    cursor: pointer;
+    user-select: none;
+}
+nav #menupic:checked ~ nav ul {
+    height: 160px;
+}
+
+nav ul img {
+    width: 60px;
+}
+nav ul a {
+    font-size: 16px;
+}
+nav ul li {
+    text-align: center;
+    padding: 10px 0;
+    height: fit-content;
+    width: fit-content;
+    transition: all .5s;
+   
+}
+nav ul li:hover {
+    color: var(--white);
+    background-color: var(--orange);
+}
+
+nav ul li svg {
+    transition: all .5s;
+}
+nav ul li svg:hover {
+    stroke: var(--white);
+}
+nav ul li:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+nav ul li:first-child + li {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    background-color: var(--orange);
+    width: 180px;
+}
+nav ul li:last-child {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "bebas neaue";
+}
+
+#search {
+    grid-row: 2;
+    background-color: var(--white);
+    text-align: center;
+    display:grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding: 15px;
+}
+#search input, #search button {
+    height: 50px;
+    margin: 0;
+}
+#search input {
+    width: 300px;
+    grid-row: 1;
+    border: 2px solid var(--orange);
+}
+#search button {
+    grid-row: 1;
+    color: var(--white);
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+}
+menu {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+  }
+  menu li{
+    color: var(--orange);
+  }
+  menu li a:hover {
+    background-color: var(--orange);
+    color: var(--white);
+    transition: all .5s;
+}
+ article h2 {
+    color: var(--black);
+    font-size: 40px;
+    margin-bottom: -30px;
+    text-align: center;
+  }
+  
+  article li {
+    margin-right: 0;
+    margin-bottom: 5px;
+    
+  }
+  
+  article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  article p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .details li {
+    list-style: none;
+  }
+ .details span{
+    font-weight: bold;
+ }
+  .details, .ingredients, .directions {
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    color: var(--black);
+    font-size: 30px;
+    text-align: center;
+  }
+  main p {
+    margin: 5px;
+    line-height: 1.5;
+}
+  aside.side-dishes {
+    background-color:var(--aqua);
+    margin-top: 20px;
+    padding: 5px;
+  }
+  
+  .side-dishes figure{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin: 25px 0;
+    display: grid;
+    grid-template-areas: 
+                    "a b b b"
+                    "a c c c"
+                    "a d d d";
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 33px 33px 33px;
+    column-gap: 15px;
+  }
+ 
+  aside.side-dishes img {
+    width: 110px;
+    height: 110px;
+    grid-area: a;
+  }
+
+.side-dishes figcaption{
+    grid-area: b;
+    margin: 0;
+    font-weight: bold;
+}
+.side-dishes p{
+    grid-area: c;
+    margin: 2px 0;
+}
+.side-dishes dl{
+    grid-area: d;
+}
+.side-dishes dd{
+    margin: 0;
+}
+figcaption{
+    font-size: 25px;
+}
+footer {
+    display: grid;
+    grid-template-rows: 100px 1fr 30px;
+    justify-content: center;
+    text-align: center;
+    row-gap: 25px;
+    font-family: 'bebas-neue';
+    font-size: 20px;
+    padding-bottom: 35px;
+}
+footer p{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.connect h3{
+    visibility: hidden;
+}
+.connect ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    gap: 30px;
+    grid-row: 1;
+    
+}
+.connect ul li{
+    font-size: 20px;
+}
+.connect ul li a{
+    text-align: center;
+    color: var(--orange);
+
+}
+footer img{
+    width: 300px;
+    padding-left: 50px;
+    padding-top: 40px;
+}
+
+/* ----Media Query (medium)---- */
+@media (min-width: 768px){
+    body, nav ul, menu{
+        width: 768px;
+    }
+    nav ul {
+        height: 200px;
+    }
+    nav ul li:first-child {
+        grid-column-start: 2;
+        grid-column-end: 7;
+        visibility: hidden;
+    }
+    nav ul li:first-child + li {
+        grid-row: 1;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        background-color: var(--orange);
+        width: 110px;
+    }
+    
+    nav ul li:last-child {
+        grid-column-start: 7;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        width: 68px;
+    }
+    nav ul img {
+        width: 60px
+    }
+    #search {
+        grid-row: 1;
+        position: absolute;
+        z-index: 1;
+        background-color: white;
+        right: 100px;
+    }
+    h2 {
+        text-align: left;
+        padding-top: 65px;
+    }
+    menu {
+        background: rgba(255, 255, 255, .5);
+        width: 768px;
+        position: absolute;
+        height: 100px;
+        top: 227px;
+    }
+     li a{
+        text-decoration: none;
+        color: var(--orange);
+    }
+    li a:hover{
+        color: var(--white);
+    }
+    menu li {
+        padding: 15px;
+        text-align: center;
+        margin-top: 10px;
+        
+    }
+    .details{
+        text-align: center;
+    }
+    #ind{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+    .side-dishes h3{
+        text-align: center;
+        grid-column: span 2;
+
+    }
+    .side-dishes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    footer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 50px;
+        padding-top: 50px;
+    }
+
+    .connect {
+        grid-column: 2;
+    }
+
+    footer img {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+/* ----Media Query (large)---- */
+@media (min-width: 1280px){
+    body, nav ul {
+        width: 1280px;
+    }
+    nav {
+        grid-template-rows: 1fr 100px;
+    }
+    nav ul {
+        height: 100px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+   nav ul li:first-child {
+        grid-column: 2;
+        visibility: hidden;
+    } 
+    nav ul li:first-child + li {
+        grid-row: 1;
+        grid-column: 1;
+        background-color: var(--orange);
+        width: 110px;
+    }
+    #search {
+        grid-row: 2;
+        position: static;
+        background-color: var(--white);
+        padding-top: 50px;
+    }
+    nav ul li:last-child {
+        grid-column: 11;
+        grid-row: 1;
+        width: 68px;
+    }
+     h2 {
+        text-align: center;
+        width: 1280px;  
+    }
+   
+    menu {
+        display: inline-block;
+       margin-top: 30px;   
+    }
+   
+    menu {
+        flex-direction: column;
+        left: 0;
+        width: 125px;
+        height: 746px;
+        margin-left: 50px;
+        position: fixed;
+        border: 2px solid var(--orange);
+    }
+    menu li:first-child {
+        padding-top: 50px;
+    }
+    [src*="street-tacos"] {
+        width: 500px;
+        margin-top: 15px;
+        margin-left: 170px; 
+    }
+    
+    article p{
+        position: relative;
+        top: -750px;
+        left: 670px;
+        width: 600px;
+        line-height: 2;
+        padding: 15px;
+    }
+    .details h3{
+        color: var(--aqua);
+        grid-column: span 5;
+    }
+    .details{
+        width: 1240px;
+        background-color: var(--black);
+        color: var(--aqua);
+        margin: 0;
+        padding: 20px;
+        margin-top: -350px; 
+    }
+    .details ul {
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        
+        gap: 10px;
+    }
+    .details li{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    .details span{
+        grid-row: 2;
+    }
+    .side-dishes h3{
+        grid-column: span 4;
+    }
+    .side-dishes{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+
+    }
+    .side-dishes figure {
+        width: fit-content;
+        
+        grid-template-areas: 
+                    "img"
+                    "figcap"
+                    "desc"
+                    "rating";
+        grid-template-columns: 250px;
+        grid-template-rows: 250px 35px 35px 35px;
+        margin: auto;
+    }
+    .side-dishes figure img {
+        width: 250px;
+        height: 250px;
+        grid-area: img;
+    }
+
+    .side-dishes figure figcaption {
+        grid-area: figcap;
+    }
+
+    .side-dishes figure p {
+        grid-area: desc;
+    }
+
+    .side-dishes figure dl {
+        grid-area: rating;
+    }
+
+    .side-dishes figure dl dd {
+        display: inline;
+    }
+    .side-dishes figure dl:after {
+        display: block;
+        content: '';
+    }
+    
+    .side-dishes figure dl dt {
+        display: inline-block;
+    }
+    footer{
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr;
+        
+    }
+    footer p{
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    .connect{
+        grid-column-start: 7;
+        
+    }
+}
